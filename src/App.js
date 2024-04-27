@@ -32,7 +32,6 @@ function App() {
       return;
     }
     const RZ_KEY = process.env.REACT_APP_RAZORPAY_KEY_ID
-    console.log("Transaction start111s=====",RZ_KEY)
     await axios.get(`${BASE_URL}/payment/testing`);
     const result = await axios.post(`${BASE_URL}/payment/orders`);
 
@@ -60,8 +59,10 @@ function App() {
         };
         console.log("Before result=====",data)
         const result = await axios.post(`${BASE_URL}/payment/success`, data);
-        setDataItem(result.data)
-        console.log("after result=====",result.data)
+        console.log("after result=====",result)
+        if (result && result.data) {
+          setDataItem(result.data)
+        }
         // alert(result.data.msg);
       },
       prefill: {
