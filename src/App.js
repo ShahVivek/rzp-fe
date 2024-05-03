@@ -119,7 +119,6 @@ function App() {
         if (result && result.data) {
           setDataItem(result.data);
         }
-        // alert(result.data.msg);
       },
       prefill: {
         name: "Vivek Shah",
