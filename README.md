@@ -1,4 +1,4 @@
-# rzp-be
+# rzp-fe
 
 ## Steps to follow
 
