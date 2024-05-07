@@ -43,15 +43,15 @@ function App() {
     const { amount, id: order_id, currency } = result.data;
     const options = {
       key: RZ_KEY,
+      webview_intent: true,
+      callback_url: "https://rzp-be.onrender.com/payment/callback",
+      redirect: true,
       amount: amount.toString(),
       currency: currency,
       name: 'Sprigstack',
       description: 'Test Transaction',
       image: { logo },
       order_id: order_id,
-      webview_intent: true,
-      callback_url: "https://webhook.site/606c060b-39d0-4579-adb3-fca3d13ce762",
-      redirect: true,
       // handler: async function (response) {
         
       //   const data = {
@@ -87,7 +87,7 @@ function App() {
 
   return (
     <div className='App'>
-        <p>Buy React now with callback url</p>
+        <p>React RZP example</p>
         <button className='App-link' onClick={displayRazorpay}>
           Payment of ₹1
         </button>
