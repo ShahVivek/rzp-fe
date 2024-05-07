@@ -50,22 +50,24 @@ function App() {
       image: { logo },
       order_id: order_id,
       webview_intent: true,
-      handler: async function (response) {
+      callback_url: "https://webhook.site/606c060b-39d0-4579-adb3-fca3d13ce762",
+      redirect: true,
+      // handler: async function (response) {
         
-        const data = {
-          orderCreationId: order_id,
-          razorpayPaymentId: response.razorpay_payment_id,
-          razorpayOrderId: response.razorpay_order_id,
-          razorpaySignature: response.razorpay_signature,
-        };
-        console.log("Before result=====",data)
-        const result = await axios.post(`${BASE_URL}/payment/success`, data);
-        console.log("after result=====",result)
-        if (result && result.data) {
-          setDataItem(result.data)
-        }
-        // alert(result.data.msg);
-      },
+      //   const data = {
+      //     orderCreationId: order_id,
+      //     razorpayPaymentId: response.razorpay_payment_id,
+      //     razorpayOrderId: response.razorpay_order_id,
+      //     razorpaySignature: response.razorpay_signature,
+      //   };
+      //   console.log("Before result=====",data)
+      //   const result = await axios.post(`${BASE_URL}/payment/success`, data);
+      //   console.log("after result=====",result)
+      //   if (result && result.data) {
+      //     setDataItem(result.data)
+      //   }
+      //   // alert(result.data.msg);
+      // },
       prefill: {
         name: 'Vivek Shah',
         email: 'v7shah@gmail.com',
@@ -85,7 +87,7 @@ function App() {
 
   return (
     <div className='App'>
-        <p>Buy React now!</p>
+        <p>Buy React now with callback url</p>
         <button className='App-link' onClick={displayRazorpay}>
           Payment of ₹1
         </button>
