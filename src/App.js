@@ -43,31 +43,16 @@ function App() {
     const { amount, id: order_id, currency } = result.data;
     const options = {
       key: RZ_KEY,
-      webview_intent: true,
-      callback_url: "https://rzp-be.onrender.com/payment/callback",
-      redirect: true,
       amount: amount.toString(),
+      // callback_url: "https://rzp-be.onrender.com/payment/callback",
+      callback_url: "https://eneqd3r9zrjok.x.pipedream.net",
+      redirect: true,
+      webview_intent: true,
       currency: currency,
       name: 'Sprigstack',
       description: 'Test Transaction',
       image: { logo },
       order_id: order_id,
-      // handler: async function (response) {
-        
-      //   const data = {
-      //     orderCreationId: order_id,
-      //     razorpayPaymentId: response.razorpay_payment_id,
-      //     razorpayOrderId: response.razorpay_order_id,
-      //     razorpaySignature: response.razorpay_signature,
-      //   };
-      //   console.log("Before result=====",data)
-      //   const result = await axios.post(`${BASE_URL}/payment/success`, data);
-      //   console.log("after result=====",result)
-      //   if (result && result.data) {
-      //     setDataItem(result.data)
-      //   }
-      //   // alert(result.data.msg);
-      // },
       prefill: {
         name: 'Vivek Shah',
         email: 'v7shah@gmail.com',
@@ -89,7 +74,7 @@ function App() {
     <div className='App'>
         <p>React RZP example</p>
         <button className='App-link' onClick={displayRazorpay}>
-          Payment of ₹1
+          ₹1 Payment
         </button>
       <div style={{marginTop: 50, marginBottom: 20}}>Other Details</div>
       {dataItem && <div>Success {dataItem}</div>}
