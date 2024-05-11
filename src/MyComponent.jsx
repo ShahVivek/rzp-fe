@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import logo from './logo.svg'
+import { useNavigate } from "react-router-dom";
 
 function MyComponent() {
   const BASE_URL = "https://rzp-be.onrender.com";
   const [dataItem, setDataItem] = useState(null);
-  
+  const navigate = useNavigate(); 
+
+  const routeChange = () =>{ 
+    let path = `testing`; 
+    navigate(path);
+  }
   function loadScript(src) {
     return new Promise((resolve) => {
       const script = document.createElement('script');
@@ -80,7 +85,11 @@ function MyComponent() {
         <button className='App-link' onClick={displayRazorpay}>
           ₹1 Payment
         </button>
-        <Link to="/testing">About</Link>
+        <button color="primary" className="px-4"
+            onClick={routeChange}
+              >
+              On Test page
+            </button>
       <div style={{marginTop: 50, marginBottom: 20}}>Other Details</div>
       {dataItem && <div>Success {dataItem}</div>}
     </div>
